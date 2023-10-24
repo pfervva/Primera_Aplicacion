@@ -6,11 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageButton
+        android:id="@+id/boton_llamada"
+        android:layout_width="73dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="144dp"
+        android:background="@drawable/circulo_icon"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@android:drawable/stat_sys_phone_call" />
+
+
+    <ImageButton
+        android:id="@+id/web"
+        android:layout_width="73dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/circulo_icon"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boton_llamada"
+        app:srcCompat="@android:drawable/ic_menu_search" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="264dp"
         android:layout_height="255dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,10 +43,29 @@
         app:srcCompat="@mipmap/logo" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/llamada_logo"
-        />
+        android:id="@+id/adiccional"
+        android:layout_width="73dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/circulo_icon"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.698"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alarma"
+        app:srcCompat="@android:drawable/ic_menu_add" />
+
+    <ImageButton
+        android:id="@+id/alarma"
+        android:layout_width="73dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="144dp"
+        android:background="@drawable/circulo_icon"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.698"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@android:drawable/ic_popup_reminder" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

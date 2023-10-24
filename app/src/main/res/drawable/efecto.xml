@@ -1,0 +1,12 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="oval">
+            <solid android:color="#606060" /> <!-- Cambia el color a un gris más oscuro cuando se presiona -->
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#808080" /> <!-- Color gris en formato hexadecimal -->
+        </shape>
+    </item>
+</selector>
