@@ -8,27 +8,25 @@
     android:backgroundTint="#303030"
     tools:context=".MainActivity">
 
+
     <ImageButton
         android:id="@+id/boton_llamada"
         android:layout_width="73dp"
         android:layout_height="74dp"
-        android:layout_marginStart="96dp"
+        android:layout_marginStart="92dp"
         android:layout_marginTop="144dp"
-        android:background="@drawable/circulo_icon"
         android:foreground="?android:attr/selectableItemBackground"
         android:scaleX="1.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:srcCompat="@android:drawable/stat_sys_phone_call" />
 
-
     <ImageButton
         android:id="@+id/web"
         android:layout_width="73dp"
         android:layout_height="74dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/circulo_icon"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="44dp"
         android:foreground="?android:attr/selectableItemBackground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/boton_llamada"
@@ -36,8 +34,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="329dp"
-        android:layout_height="285dp"
+        android:layout_width="219dp"
+        android:layout_height="174dp"
         android:layout_marginTop="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -49,8 +47,7 @@
         android:id="@+id/captura"
         android:layout_width="73dp"
         android:layout_height="74dp"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/circulo_icon"
+        android:layout_marginTop="44dp"
         android:foreground="?android:attr/selectableItemBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.698"
@@ -63,7 +60,6 @@
         android:layout_width="73dp"
         android:layout_height="74dp"
         android:layout_marginTop="144dp"
-        android:background="@drawable/circulo_icon"
         android:foreground="?android:attr/selectableItemBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.698"

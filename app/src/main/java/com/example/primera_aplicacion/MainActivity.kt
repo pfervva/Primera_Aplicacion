@@ -3,16 +3,19 @@ package com.example.primera_aplicacion
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.AlarmClock
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var imageView: ImageView
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,18 +38,32 @@ class MainActivity : AppCompatActivity() {
         }
 
         botonAlarma.setOnClickListener {
-            val currentTime = android.icu.util.Calendar.getInstance()
-            currentTime.add(android.icu.util.Calendar.MINUTE, 2)
+            val calendar = java.util.Calendar.getInstance()
+            val horaActual = calendar.get(java.util.Calendar.HOUR_OF_DAY)
+            val minutosActuales = calendar.get(java.util.Calendar.MINUTE)
+
+            // Sumar 2 minutos
+            val minutosAlarma = minutosActuales + 3
+            val horaAlarma = horaActual + minutosAlarma / 60
+            val minutosFinal = minutosAlarma % 60
 
             val intent = Intent(AlarmClock.ACTION_SET_ALARM).apply {
+                putExtra(AlarmClock.EXTRA_HOUR, horaAlarma)
+                putExtra(AlarmClock.EXTRA_MINUTES, minutosFinal)
+                putExtra(AlarmClock.EXTRA_SKIP_UI, true) // Omitir la interfaz de usuario de la aplicación de reloj
                 putExtra(AlarmClock.EXTRA_MESSAGE, "Alarma")
-                putExtra(AlarmClock.EXTRA_HOUR, currentTime.get(android.icu.util.Calendar.HOUR_OF_DAY))
-                putExtra(AlarmClock.EXTRA_MINUTES, currentTime.get(android.icu.util.Calendar.MINUTE))
+                putExtra(AlarmClock.EXTRA_VIBRATE, true)
+                putExtra(AlarmClock.EXTRA_RINGTONE, "content://settings/system/alarm_alert")
             }
+
             if (intent.resolveActivity(packageManager) != null) {
                 startActivity(intent)
+            } else {
+                Toast.makeText(this, "La aplicación de reloj no está disponible en este dispositivo", Toast.LENGTH_LONG).show()
             }
         }
+
+
         botonCaptura.setOnClickListener {
             val captura = captureScreen()
             if (captura != null) {

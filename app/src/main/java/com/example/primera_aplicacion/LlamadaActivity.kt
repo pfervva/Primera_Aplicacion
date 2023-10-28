@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
-
 class LlamadaActivity : AppCompatActivity() {
     private val REQUEST_PHONE_PERMISSION = 1
 
@@ -24,11 +23,14 @@ class LlamadaActivity : AppCompatActivity() {
         botonLlamada2.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    // Solicito permisos :)
                     ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CALL_PHONE), REQUEST_PHONE_PERMISSION)
                 } else {
+                    // Permiso ya concedido, realizamos la llamada
                     realizarLlamada()
                 }
             } else {
+                // Versiones anteriores a Android 6.0, realizar la llamada directamente
                 realizarLlamada()
             }
         }
@@ -39,16 +41,17 @@ class LlamadaActivity : AppCompatActivity() {
 
         if (requestCode == REQUEST_PHONE_PERMISSION) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permiso concedido, realizar la llamada
                 realizarLlamada()
             } else {
+                // Permiso denegado, mostrar mensaje de error o tomar alguna acción apropiada
                 mostrarMensajeDeError()
             }
         }
     }
 
     private fun realizarLlamada() {
-        val numeroTelefono = "tel:652294366"
-
+        val numeroTelefono = "tel:5555555555"
         val intentLlamada = Intent(Intent.ACTION_CALL, Uri.parse(numeroTelefono))
 
         if (intentLlamada.resolveActivity(packageManager) != null) {
